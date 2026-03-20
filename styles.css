@@ -603,6 +603,18 @@ body {
         padding: 3.5rem 0;
     }
 
+    .container {
+        padding: 0 1.2rem;
+    }
+
+    .glass-card {
+        padding: 1.5rem;
+    }
+
+    .explore-map {
+        padding: 1rem;
+    }
+
     .section-header h3 {
         font-size: 2rem;
     }

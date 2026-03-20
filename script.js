@@ -178,7 +178,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 3. Leaflet Map Initialization & POIs
-    const map = L.map('map').setView([36.5885, -6.2320], 14);
+    const map = L.map('map', {
+        scrollWheelZoom: false,
+        tap: false
+    }).setView([36.5885, -6.2320], 14);
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
