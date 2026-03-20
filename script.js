@@ -398,23 +398,4 @@ document.addEventListener("DOMContentLoaded", () => {
         slider.addEventListener('touchstart', () => isPaused = true, {passive: true});
         slider.addEventListener('touchend', () => setTimeout(() => isPaused = false, 2000), {passive: true});
     }
-
-    // 5. Mobile Menu Toggle
-    const navToggle = document.getElementById('nav-toggle');
-    const navActions = document.getElementById('nav-actions');
-
-    if (navToggle && navActions) {
-        navToggle.addEventListener('click', () => {
-            navToggle.classList.toggle('active');
-            navActions.classList.toggle('active');
-        });
-
-        // Close menu when clicking a link
-        navActions.querySelectorAll('a, .lang-btn').forEach(item => {
-            item.addEventListener('click', () => {
-                navToggle.classList.remove('active');
-                navActions.classList.remove('active');
-            });
-        });
-    }
 });

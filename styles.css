@@ -57,10 +57,11 @@ body {
 .nav-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 0.75rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 
 .logo {
@@ -72,38 +73,6 @@ body {
 .logo span {
     color: var(--accent-cyan);
     font-weight: 300;
-}
-
-/* Hamburger Menu */
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-.nav-toggle span {
-    height: 3px;
-    width: 100%;
-    background-color: var(--text-primary);
-    border-radius: 10px;
-    transition: all 0.3s ease;
-}
-
-/* Hamburger Animation */
-.nav-toggle.active span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-}
-
-.nav-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.nav-toggle.active span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
 }
 
 /* --- Navigation Elements --- */
@@ -619,42 +588,27 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .nav-toggle {
-        display: flex;
-    }
-
-    .nav-actions {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        height: 100vh;
-        background: var(--bg-color);
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2.5rem;
-        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-actions.active {
-        right: 0;
-    }
-
-    .lang-selector {
-        gap: 1rem;
+    .nav-content {
+        padding: 0.6rem 1rem;
     }
 
     .lang-btn {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
+        padding: 0.15rem 0.2rem;
+    }
+
+    .nav-actions {
+        gap: 0.75rem;
     }
 
     .btn-primary {
-        padding: 0.8rem 2rem;
-        font-size: 1rem;
+        padding: 0.5rem 0.9rem;
+        font-size: 0.82rem;
+        white-space: nowrap;
+    }
+
+    .logo {
+        font-size: 1.2rem;
     }
 
     .hero {
