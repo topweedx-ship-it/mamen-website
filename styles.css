@@ -1,23 +1,24 @@
 :root {
-    --bg-color: #f8fafc;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --accent-blue: #0284c7;
-    --accent-cyan: #06b6d4;
-    --accent-gold: #f59e0b;
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.3);
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+    --bg-color: #f0f7f7;
+    --text-primary: #0d2233;
+    --text-secondary: #4a6a7a;
+    --accent-blue: #1a8fa0;
+    --accent-cyan: #2eb8b8;
+    --accent-gold: #c9a040;
+    --accent-sand: #e8d5a3;
+    --glass-bg: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(46, 184, 184, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(13, 34, 51, 0.08);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg-color: #020617;
-        --text-primary: #f8fafc;
-        --text-secondary: #cbd5e1;
-        --glass-bg: rgba(15, 23, 42, 0.6);
-        --glass-border: rgba(255, 255, 255, 0.1);
-        --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+        --bg-color: #0d2233;
+        --text-primary: #e8f4f4;
+        --text-secondary: #94bfc5;
+        --glass-bg: rgba(18, 48, 66, 0.65);
+        --glass-border: rgba(46, 184, 184, 0.18);
+        --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
     }
 }
 
@@ -223,19 +224,19 @@ body {
 /* Dark mode: normal blend + frosted pill backdrop behind the white-bg PNG */
 @media (prefers-color-scheme: dark) {
     .hero-title-container {
-        background: rgba(255, 255, 255, 0.07);
+        background: rgba(24, 68, 90, 0.45);
         border-radius: 24px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        box-shadow: 0 0 40px rgba(245, 158, 11, 0.12),
-                    0 8px 32px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(46, 184, 184, 0.25);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 0 50px rgba(46, 184, 184, 0.15),
+                    0 8px 32px rgba(0, 0, 0, 0.3);
     }
 
     .hero-logo-img {
         mix-blend-mode: normal;
-        filter: brightness(1.05) contrast(1.15) saturate(1.3)
-               drop-shadow(0 4px 18px rgba(245, 158, 11, 0.45));
+        filter: brightness(1.08) contrast(1.1) saturate(1.25)
+               drop-shadow(0 4px 20px rgba(46, 184, 184, 0.5));
         opacity: 1;
         -webkit-mask-image: none;
         mask-image: none;
@@ -635,18 +636,22 @@ body {
         mask-image: radial-gradient(ellipse 88% 88% at 50% 48%, black 50%, transparent 78%);
     }
 
-    /* Dark mode mobile: pill backdrop + gold glow, no mask needed */
+    /* Dark mode mobile: pill backdrop + teal/coastal glow, no mask needed */
     @media (prefers-color-scheme: dark) {
         .hero-title-container {
             padding: 1rem 1.5rem;
             margin-bottom: 1.2rem;
+            background: rgba(20, 58, 78, 0.5);
+            border: 1px solid rgba(46, 184, 184, 0.3);
+            box-shadow: 0 0 40px rgba(46, 184, 184, 0.18),
+                        0 6px 24px rgba(0, 0, 0, 0.28);
         }
 
         .hero-logo-img {
             -webkit-mask-image: none;
             mask-image: none;
-            filter: brightness(1.05) contrast(1.15) saturate(1.3)
-                   drop-shadow(0 4px 14px rgba(245, 158, 11, 0.5));
+            filter: brightness(1.1) contrast(1.08) saturate(1.2)
+                   drop-shadow(0 4px 16px rgba(46, 184, 184, 0.55));
         }
     }
 
