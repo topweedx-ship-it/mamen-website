@@ -203,23 +203,42 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 300px;
-    mix-blend-mode: multiply;
+    min-height: 220px;
 }
 
+/* Light mode: multiply blends white background into the light page.
+   Brightness boost pushes near-white pixels to pure white for cleaner blend.
+   Radial mask-image feathers the edges so no hard box is visible. */
 .hero-logo-img {
     width: 280px;
     height: auto;
     opacity: 1;
     z-index: 1;
-    filter: contrast(1.1) saturate(1.2);
+    filter: brightness(1.08) contrast(1.15) saturate(1.3);
+    mix-blend-mode: multiply;
+    -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 55%, transparent 80%);
+    mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 55%, transparent 80%);
 }
 
+/* Dark mode: normal blend + frosted pill backdrop behind the white-bg PNG */
 @media (prefers-color-scheme: dark) {
+    .hero-title-container {
+        background: rgba(255, 255, 255, 0.07);
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 0 40px rgba(245, 158, 11, 0.12),
+                    0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
     .hero-logo-img {
-        filter: brightness(1.1) contrast(1.1) saturate(1.2);
-        opacity: 1;
         mix-blend-mode: normal;
+        filter: brightness(1.05) contrast(1.15) saturate(1.3)
+               drop-shadow(0 4px 18px rgba(245, 158, 11, 0.45));
+        opacity: 1;
+        -webkit-mask-image: none;
+        mask-image: none;
     }
 }
 
@@ -595,12 +614,40 @@ body {
     }
 
     .hero {
-        padding-top: 5rem;
+        padding-top: 4rem;
+    }
+
+    .hero-content {
+        margin-top: 0.5rem;
+    }
+
+    .hero-title-container {
+        min-height: auto;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
     }
 
     .hero-logo-img {
         width: 180px;
         opacity: 1;
+        filter: brightness(1.1) contrast(1.2) saturate(1.4);
+        -webkit-mask-image: radial-gradient(ellipse 88% 88% at 50% 48%, black 50%, transparent 78%);
+        mask-image: radial-gradient(ellipse 88% 88% at 50% 48%, black 50%, transparent 78%);
+    }
+
+    /* Dark mode mobile: pill backdrop + gold glow, no mask needed */
+    @media (prefers-color-scheme: dark) {
+        .hero-title-container {
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-logo-img {
+            -webkit-mask-image: none;
+            mask-image: none;
+            filter: brightness(1.05) contrast(1.15) saturate(1.3)
+                   drop-shadow(0 4px 14px rgba(245, 158, 11, 0.5));
+        }
     }
 
     .hero-buttons {
