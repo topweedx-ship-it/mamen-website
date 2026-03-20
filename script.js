@@ -275,11 +275,78 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.addEventListener('click', (e) => {
             // Update active state
             filterBtns.forEach(b => b.classList.remove('active'));
-            const clickedBtn = e.target;
+            const clickedBtn = e.currentTarget;
             clickedBtn.classList.add('active');
             
             // Render filtered
-            renderMarkers(clickedBtn.getAttribute('data-filter'));
+            const filter = clickedBtn.getAttribute('data-filter');
+            renderMarkers(filter);
+
+            // Sync poi-sidebar visibility
+            syncSidebarFilter(filter);
+        });
+    });
+
+    // POI Sidebar interactivity
+    function syncSidebarFilter(filterCategory) {
+        const poiCards = document.querySelectorAll('.poi-card');
+        poiCards.forEach(card => {
+            const placeId = card.getAttribute('data-id');
+            const place = places.find(p => p.id === placeId);
+            if (!place) return;
+            if (filterCategory === 'all' || place.category === filterCategory || place.category === 'home') {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+                card.classList.remove('active');
+            }
+        });
+    }
+
+    function activateSidebarCard(placeId) {
+        document.querySelectorAll('.poi-card').forEach(c => c.classList.remove('active'));
+        const targetCard = document.getElementById('card-' + placeId);
+        if (targetCard) {
+            targetCard.classList.add('active');
+            // Scroll the card into view inside the sidebar
+            targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+        }
+    }
+
+    document.querySelectorAll('.poi-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const placeId = card.getAttribute('data-id');
+            const place = places.find(p => p.id === placeId);
+            if (!place) return;
+
+            // Activate card
+            activateSidebarCard(placeId);
+
+            // Find the marker for this place and open its popup
+            const matchedMarker = markers.find(m => {
+                const ll = m.getLatLng();
+                return ll.lat === place.lat && ll.lng === place.lng;
+            });
+
+            if (matchedMarker) {
+                map.setView([place.lat, place.lng], 16, { animate: true });
+                matchedMarker.openPopup();
+            } else {
+                // If filtered away, render all and then open
+                renderMarkers('all');
+                syncSidebarFilter('all');
+                filterBtns.forEach(b => b.classList.remove('active'));
+                document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+                
+                // Wait for render then open
+                setTimeout(() => {
+                    const m2 = markers.find(m => {
+                        const ll = m.getLatLng();
+                        return ll.lat === place.lat && ll.lng === place.lng;
+                    });
+                    if (m2) { map.setView([place.lat, place.lng], 16, { animate: true }); m2.openPopup(); }
+                }, 50);
+            }
         });
     });
 

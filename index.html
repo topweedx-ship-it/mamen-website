@@ -127,17 +127,41 @@
                 <div class="explore-map glass-card fade-in">
                     <!-- Filter Bar -->
                     <div class="filter-bar">
-                    <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Todas</button>
-                    <button class="filter-btn" data-filter="beach">🏖️ <span data-i18n="cat_playas_title">Playas</span></button>
-                    <button class="filter-btn" data-filter="nightlife">🍹 <span data-i18n="cat_night_title">Ocio Nocturno</span></button>
-                    <button class="filter-btn" data-filter="gastro">🥘 <span data-i18n="cat_gastro_title">Gastronomía</span></button>
-                    <button class="filter-btn" data-filter="culture">🏛️ <span data-i18n="cat_culture_title">Cultura</span></button>
-                    <button class="filter-btn" data-filter="nautica">⚓ <span data-i18n="cat_nautica_title">Náutica</span></button>
-                    <button class="filter-btn" data-filter="transport">🚆 <span data-i18n="cat_transport_title">Transporte</span></button>
-                    <button class="filter-btn" data-filter="nature">🌿 <span data-i18n="cat_nature_title">Naturaleza</span></button>
-                </div>
-                    <!-- Map Container -->
-                    <div id="map" class="map-container"></div>
+                        <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Todas</button>
+                        <button class="filter-btn" data-filter="beach">🏖️ <span data-i18n="cat_playas_title">Playas</span></button>
+                        <button class="filter-btn" data-filter="nightlife">🍹 <span data-i18n="cat_night_title">Ocio Nocturno</span></button>
+                        <button class="filter-btn" data-filter="gastro">🥘 <span data-i18n="cat_gastro_title">Gastronomía</span></button>
+                        <button class="filter-btn" data-filter="culture">🏛️ <span data-i18n="cat_culture_title">Cultura</span></button>
+                        <button class="filter-btn" data-filter="nautica">⚓ <span data-i18n="cat_nautica_title">Náutica</span></button>
+                        <button class="filter-btn" data-filter="transport">🚆 <span data-i18n="cat_transport_title">Transporte</span></button>
+                        <button class="filter-btn" data-filter="nature">🌿 <span data-i18n="cat_nature_title">Naturaleza</span></button>
+                    </div>
+                    <!-- Map + POI Sidebar -->
+                    <div class="map-wrapper">
+                        <div id="map" class="map-container"></div>
+                        <div class="poi-sidebar" id="poi-sidebar">
+                            <div class="poi-card" id="card-home" data-id="home"><span class="poi-emoji">🏠</span><div class="poi-info"><div class="poi-name">Sal y Mar</div><div class="poi-addr">Tu Refugio</div></div></div>
+                            <div class="poi-card" id="card-puntilla" data-id="puntilla"><span class="poi-emoji">🏖️</span><div class="poi-info"><div class="poi-name">Playa de la Puntilla</div><div class="poi-addr">1.6 km</div></div></div>
+                            <div class="poi-card" id="card-valdelagrana" data-id="valdelagrana"><span class="poi-emoji">🏖️</span><div class="poi-info"><div class="poi-name">Playa Valdelagrana</div><div class="poi-addr">Playa principal</div></div></div>
+                            <div class="poi-card" id="card-muralla" data-id="muralla"><span class="poi-emoji">🏖️</span><div class="poi-info"><div class="poi-name">Playa La Muralla</div><div class="poi-addr">Puerto Sherry</div></div></div>
+                            <div class="poi-card" id="card-calita" data-id="calita"><span class="poi-emoji">🏖️</span><div class="poi-info"><div class="poi-name">Playa la Calita</div><div class="poi-addr">Puerto Sherry</div></div></div>
+                            <div class="poi-card" id="card-lioclub" data-id="lioclub"><span class="poi-emoji">🎭</span><div class="poi-info"><div class="poi-name">Lio Club</div><div class="poi-addr">Puntilla</div></div></div>
+                            <div class="poi-card" id="card-cristalera" data-id="cristalera"><span class="poi-emoji">🎹</span><div class="poi-info"><div class="poi-name">Bar La Cristalera</div><div class="poi-addr">Río Guadalete</div></div></div>
+                            <div class="poi-card" id="card-banana" data-id="banana"><span class="poi-emoji">🍌</span><div class="poi-info"><div class="poi-name">Banana Club</div><div class="poi-addr">Ribera del Marisco</div></div></div>
+                            <div class="poi-card" id="card-phiphi" data-id="phiphi"><span class="poi-emoji">🍹</span><div class="poi-info"><div class="poi-name">PhiPhi Beach</div><div class="poi-addr">Puerto Sherry</div></div></div>
+                            <div class="poi-card" id="card-aponiente" data-id="aponiente"><span class="poi-emoji">⭐</span><div class="poi-info"><div class="poi-name">Aponiente</div><div class="poi-addr">3 Estrellas Michelin</div></div></div>
+                            <div class="poi-card" id="card-ribera" data-id="ribera"><span class="poi-emoji">🦞</span><div class="poi-info"><div class="poi-name">Ribera del Marisco</div><div class="poi-addr">Río Guadalete</div></div></div>
+                            <div class="poi-card" id="card-osborne" data-id="osborne"><span class="poi-emoji">🍷</span><div class="poi-info"><div class="poi-name">Bodegas Osborne</div><div class="poi-addr">Centro</div></div></div>
+                            <div class="poi-card" id="card-romerijo" data-id="romerijo"><span class="poi-emoji">🦐</span><div class="poi-info"><div class="poi-name">Romerijo</div><div class="poi-addr">Ribera del Marisco</div></div></div>
+                            <div class="poi-card" id="card-castillo" data-id="castillo"><span class="poi-emoji">🏰</span><div class="poi-info"><div class="poi-name">Castillo San Marcos</div><div class="poi-addr">Centro Histórico</div></div></div>
+                            <div class="poi-card" id="card-iglesia" data-id="iglesia"><span class="poi-emoji">⛪</span><div class="poi-info"><div class="poi-name">Iglesia Mayor Prioral</div><div class="poi-addr">Plaza de España</div></div></div>
+                            <div class="poi-card" id="card-alberti" data-id="alberti"><span class="poi-emoji">🏛️</span><div class="poi-info"><div class="poi-name">Museo Rafael Alberti</div><div class="poi-addr">Calle Santo Domingo</div></div></div>
+                            <div class="poi-card" id="card-puertosherry" data-id="puertosherry"><span class="poi-emoji">⚓</span><div class="poi-info"><div class="poi-name">Puerto Sherry Marina</div><div class="poi-addr">Marina</div></div></div>
+                            <div class="poi-card" id="card-tren" data-id="tren"><span class="poi-emoji">🚆</span><div class="poi-info"><div class="poi-name">Estación de Tren</div><div class="poi-addr">Renfe</div></div></div>
+                            <div class="poi-card" id="card-catamaran" data-id="catamaran"><span class="poi-emoji">⛵</span><div class="poi-info"><div class="poi-name">Catamarán a Cádiz</div><div class="poi-addr">Est. Marítima</div></div></div>
+                            <div class="poi-card" id="card-torunos" data-id="torunos"><span class="poi-emoji">🌿</span><div class="poi-info"><div class="poi-name">Parque Los Toruños</div><div class="poi-addr">Marismas</div></div></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
