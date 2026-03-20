@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sal y Mar — Tu refugio en El Puerto</title>
+    <meta name="description"
+        content="Descubre Sal y Mar en El Puerto de Santa María. Playa, gastronomía y descanso en un entorno único.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar header-glass">
+        <div class="nav-content">
+            <h1 class="logo">Sal <span>y</span> Mar</h1>
+            <div class="nav-actions">
+                <div class="lang-selector">
+                    <button class="lang-btn active" data-lang="es" title="Español">🇪🇸</button>
+                    <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+                    <button class="lang-btn" data-lang="fr" title="Français">🇫🇷</button>
+                    <button class="lang-btn" data-lang="de" title="Deutsch">🇩🇪</button>
+                </div>
+                <a href="https://www.airbnb.es/rooms/673943661761528198?guests=1&adults=1&s=67&unique_share_id=f449c678-5e10-42ef-afc0-b047936bb1f5" target="_blank" rel="noopener noreferrer" class="btn-primary" data-i18n="book_nav">Reservar ahora</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-title-container fade-in">
+                <div class="hero-logo-bg"></div>
+                <h1 class="hero-main-title">Sal y Mar</h1>
+            </div>
+            <span class="badge" data-i18n="hero_badge">Bienvenido a tu escape perfecto</span>
+            <h2 class="hero-title" data-i18n="hero_title">Tu rincón de paz entre la sal y el mar.</h2>
+            <div class="hero-buttons">
+                <a href="#explore" class="btn-secondary" data-i18n="explore_btn">Explorar la zona</a>
+                <a href="https://www.airbnb.es/rooms/673943661761528198?guests=1&adults=1&s=67&unique_share_id=f449c678-5e10-42ef-afc0-b047936bb1f5" target="_blank" rel="noopener noreferrer" class="btn-primary" data-i18n="book_btn">Ver disponibilidad</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>↓</span>
+        </div>
+    </header>
+
+    <!-- Amenities Section -->
+    <section class="section" id="amenities">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h3 data-i18n="amenities_title">Todo a tu alcance</h3>
+                <p data-i18n="amenities_subtitle">Diseñado para que solo te preocupes de disfrutar.</p>
+            </div>
+
+            <div class="slider-container fade-in">
+                <div class="card glass-card slide-card" data-filter="beach">
+                    <div class="card-icon">🏖️</div>
+                    <h4 data-i18n="cat_playas_title">Playas</h4>
+                    <p data-i18n="cat_playas_desc">Amanece con el sonido de las olas y disfruta de largas caminatas por
+                        la arena fina.</p>
+                </div>
+                <div class="card glass-card slide-card delay-1" data-filter="gastro">
+                    <div class="card-icon">🥘</div>
+                    <h4 data-i18n="cat_gastro_title">Gastronomía</h4>
+                    <p data-i18n="cat_gastro_desc">Sumérgete en la ruta del vino y las mejores tapas de la región, a
+                        minutos de tu puerta.</p>
+                </div>
+                <div class="card glass-card slide-card delay-2" data-filter="nightlife">
+                    <div class="card-icon">🍹</div>
+                    <h4 data-i18n="cat_night_title">Ocio Nocturno</h4>
+                    <p data-i18n="cat_night_desc">Vive la noche andaluza con los mejores cócteles, música y ambiente
+                        frente al mar.</p>
+                </div>
+                <div class="card glass-card slide-card" data-filter="culture">
+                    <div class="card-icon">🏛️</div>
+                    <h4 data-i18n="cat_culture_title">Cultura</h4>
+                    <p data-i18n="cat_culture_desc">Descubre la historia, los castillos y la arquitectura palaciega del
+                        centro histórico.</p>
+                </div>
+                <div class="card glass-card slide-card" data-filter="nautica">
+                    <div class="card-icon">⚓</div>
+                    <h4 data-i18n="cat_nautica_title">Náutica</h4>
+                    <p data-i18n="cat_nautica_desc">Explora la marina, los clubes náuticos y disfruta de atardeceres
+                        espectaculares.</p>
+                </div>
+                <div class="card glass-card slide-card" data-filter="transport">
+                    <div class="card-icon">🚆</div>
+                    <h4 data-i18n="cat_transport_title">Transporte</h4>
+                    <p data-i18n="cat_transport_desc">Conectividad total con trenes y catamaranes directos a Cádiz y
+                        Sevilla.</p>
+                </div>
+                <div class="card glass-card slide-card" data-filter="nature">
+                    <div class="card-icon">🌿</div>
+                    <h4 data-i18n="cat_nature_title">Naturaleza</h4>
+                    <p data-i18n="cat_nature_desc">Respira aire puro en las marismas, alquila bicicletas y observa la
+                        fauna local.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore Section -->
+    <section class="section bg-light" id="explore">
+        <div class="container">
+            <div class="grid explore-grid">
+                <div class="explore-text fade-in">
+                    <h3 data-i18n="explore_title">Explora cada lugar</h3>
+                    <p data-i18n="explore_desc">La ubicación estratégica te permite acceder caminando a la vida
+                        nocturna, restaurantes emblemáticos y el centro histórico.</p>
+                    <ul class="point-list">
+                        <li>📍 <span data-i18n="poi_1">Playa de la Puntilla a 1.6 km (20 min a pie)</span></li>
+                        <li>📍 <span data-i18n="poi_2">Centro Histórico a 1.7 km (20 min a pie)</span></li>
+                        <li>📍 <span data-i18n="poi_3">Estación de Tren a 3 km (7 min en coche)</span></li>
+                    </ul>
+                </div>
+                <div class="explore-map glass-card fade-in">
+                    <!-- Filter Bar -->
+                    <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Todas</button>
+                    <button class="filter-btn" data-filter="beach">🏖️ <span data-i18n="cat_playas_title">Playas</span></button>
+                    <button class="filter-btn" data-filter="nightlife">🍹 <span data-i18n="cat_night_title">Ocio Nocturno</span></button>
+                    <button class="filter-btn" data-filter="gastro">🥘 <span data-i18n="cat_gastro_title">Gastronomía</span></button>
+                    <button class="filter-btn" data-filter="culture">🏛️ <span data-i18n="cat_culture_title">Cultura</span></button>
+                    <button class="filter-btn" data-filter="nautica">⚓ <span data-i18n="cat_nautica_title">Náutica</span></button>
+                    <button class="filter-btn" data-filter="transport">🚆 <span data-i18n="cat_transport_title">Transporte</span></button>
+                    <button class="filter-btn" data-filter="nature">🌿 <span data-i18n="cat_nature_title">Naturaleza</span></button>
+                </div>
+                    <!-- Map Container -->
+                    <div id="map" class="map-container"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking / CTAs -->
+    <section class="section" id="book">
+        <div class="container text-center fade-in">
+            <h3 class="gradient-text" data-i18n="book_title">Reserva Sal y Mar hoy</h3>
+            <p class="cta-subtitle" data-i18n="book_desc">Tu experiencia andaluza te está esperando. Asegura tus fechas
+                al mejor precio.</p>
+            <div class="cta-buttons mt-4">
+                <a href="https://www.airbnb.es/rooms/673943661761528198?guests=1&adults=1&s=67&unique_share_id=f449c678-5e10-42ef-afc0-b047936bb1f5" target="_blank" rel="noopener noreferrer" class="btn-primary large-btn">🏠 <span data-i18n="airbnb_btn">Reservar en Airbnb</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer pt-4 pb-4 text-center">
+        <div class="container">
+            <p><strong>Sal y Mar</strong></p>
+            <p class="text-sm">El Puerto de Santa María · Cádiz, España</p>
+            <p class="text-sm mt-2">&copy; 2026 Sal y Mar. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
