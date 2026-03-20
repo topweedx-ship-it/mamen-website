@@ -616,13 +616,13 @@ body {
     }
 
     .hero {
-        padding-top: 0;
-        align-items: flex-start;
+        padding-top: 4.5rem;
+        align-items: center;
     }
 
     .hero-content {
         margin-top: 0;
-        padding-top: 0.5rem;
+        padding-top: 0;
     }
 
     .hero-title-container {
