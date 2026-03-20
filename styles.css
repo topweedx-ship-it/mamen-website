@@ -197,12 +197,13 @@ body {
 
 .hero-title-container {
     position: relative;
-    padding: 3rem 2rem;
+    padding: 1rem;
     margin-bottom: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    min-height: 300px;
 }
 
 .hero-logo-bg {
@@ -210,37 +211,27 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 250px;
-    height: 250px;
+    width: 280px;
+    height: 280px;
     background-image: url('logo.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.35;
-    /* Aumentato per renderlo più visibile */
+    opacity: 1;
     z-index: 1;
+    filter: contrast(1.1) saturate(1.2);
     mix-blend-mode: multiply;
 }
 
 @media (prefers-color-scheme: dark) {
     .hero-logo-bg {
-        filter: invert(1) brightness(1.5);
-        mix-blend-mode: screen;
-        opacity: 0.3;
+        filter: brightness(1.1) contrast(1.1) saturate(1.2);
+        opacity: 1;
+        mix-blend-mode: normal;
     }
 }
 
-.hero-main-title {
-    position: relative;
-    z-index: 2;
-    font-family: var(--font-display, 'Outfit', sans-serif);
-    font-size: clamp(3rem, 10vw, 6rem);
-    font-weight: 800;
-    color: var(--text-primary);
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    letter-spacing: -2px;
-    line-height: 1;
-}
+
 
 .badge {
     background: rgba(6, 182, 212, 0.1);
@@ -598,7 +589,7 @@ body {
     }
 
     .nav-actions {
-        gap: 0.75rem;
+        gap: 1.5rem;
     }
 
     .btn-primary {
@@ -618,7 +609,7 @@ body {
     .hero-logo-bg {
         width: 180px;
         height: 180px;
-        opacity: 0.2;
+        opacity: 1;
     }
 
     .hero-buttons {
@@ -677,10 +668,6 @@ body {
 
     .section-header h3 {
         font-size: 2rem;
-    }
-
-    .hero-main-title {
-        font-size: 3.5rem;
     }
 
     .hero-title {
