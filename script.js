@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div style="font-family:'Outfit',sans-serif; text-align:center; padding-top:4px;">
                         <strong>${p.title}</strong><br>
                         <small style="color:#666;">${p.address}</small><br>
-                        <a href="${mapsUrl}" target="_blank" style="display:inline-block; margin-top:10px; padding:6px 12px; background:var(--accent-blue, #06b6d4); color:white; text-decoration:none; border-radius:15px; font-size:13px; font-weight:600; text-align:center;">
+                        <a href="${mapsUrl}" target="_blank" style="display:inline-block; margin-top:10px; padding:10px 16px; background:var(--accent-blue, #06b6d4); color:white; text-decoration:none; border-radius:20px; font-size:14px; font-weight:600; text-align:center;">
                             📍 Google Maps
                         </a>
                     </div>
@@ -327,5 +327,24 @@ document.addEventListener("DOMContentLoaded", () => {
         slider.addEventListener('mouseleave', () => isPaused = false);
         slider.addEventListener('touchstart', () => isPaused = true, {passive: true});
         slider.addEventListener('touchend', () => setTimeout(() => isPaused = false, 2000), {passive: true});
+    }
+
+    // 5. Mobile Menu Toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navActions = document.getElementById('nav-actions');
+
+    if (navToggle && navActions) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navActions.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        navActions.querySelectorAll('a, .lang-btn').forEach(item => {
+            item.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navActions.classList.remove('active');
+            });
+        });
     }
 });
